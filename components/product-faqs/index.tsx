@@ -16,7 +16,11 @@ export const getProductFaqMetafields = cache(
 );
 
 const Faqs = async ({ productId }: { productId: number }) => {
-  return Promise.resolve(null);
+  return Promise.resolve((
+    <p>
+      FAQ placeholder content for product {productId}
+    </p>
+  ));
 };
 
 export default Faqs;
