@@ -30,12 +30,10 @@ export const getProductFaqMetafields = cache(
 
 const Faqs = async ({ productId }: { productId: number }) => {
   const faqCollection = await getProductFaqMetafields(productId);
-  console.log(faqCollection);
 
   return (
-    <p>
-      FAQ placeholder content for product {productId}
-    </p>
+    <ProductFaqsList faqCollection={faqCollection} limit={limit} 
+      productId={productId} />
   );
 };
 
