@@ -25,10 +25,13 @@ const ProductFaqsList = ({
 }) => {
   const [faqs, setFaqs] = useState(faqCollection.faqs);
   const [endCursor, setEndCursor] = useState(faqCollection.endCursor);
+  const [pending, setPending] = useState(false);
 
   const t = useTranslations('Product.FAQ');
 
   const getNextFaqs = async () => {
+    setPending(true);
+
     try {
       const nextFaqData = await getNextProductFaqs(productId, limit, endCursor);
 
@@ -37,6 +40,8 @@ const ProductFaqsList = ({
     } catch (err) {
       // Handle error
     }
+
+    setPending(false);
   };
 
   return (
@@ -53,6 +58,7 @@ const ProductFaqsList = ({
       {endCursor !== null && (
         <div className="mx-auto md:w-2/3 lg:w-1/3">
           <Button
+            loading={pending}
             onClick={getNextFaqs}
             variant="secondary"
           >
