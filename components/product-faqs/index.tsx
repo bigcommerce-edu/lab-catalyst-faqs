@@ -4,18 +4,34 @@ import { cache } from 'react';
 
 import { client } from '~/client';
 
+const limit = 2;
+
 export const getProductFaqMetafields = cache(
   async (
     productId: number
   ) => {
-    return {
-      endCursor: null,
-      faqs: [],
-    };
+    const response = await client.fetch({
+      document: MetafieldsQuery,
+      variables: {
+        productId,
+        limit,
+      },
+    });
+
+    const product = response.data.site.product;
+
+    if (!product?.metafields) {
+      return { endCursor: null, faqs: [] };
+    }
+
+    return formatFaqsCollection(product);
   }
 );
 
 const Faqs = async ({ productId }: { productId: number }) => {
+  const faqCollection = await getProductFaqMetafields(productId);
+  console.log(faqCollection);
+
   return (
     <p>
       FAQ placeholder content for product {productId}
