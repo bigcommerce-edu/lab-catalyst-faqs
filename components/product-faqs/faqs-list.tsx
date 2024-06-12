@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from '~/components/ui/accordion';
 import { Button } from '~/components/ui/button';
+import { toast } from 'react-hot-toast';
 
 import { formatFaqsCollection } from './_data/component-data';
 
@@ -38,7 +39,9 @@ const ProductFaqsList = ({
       setEndCursor(nextFaqData.endCursor);
       setFaqs(faqs.concat(nextFaqData.faqs));
     } catch (err) {
-      // Handle error
+      const error = err instanceof Error ? err.message : String(err);
+      
+      toast.error(error);
     }
 
     setPending(false);
