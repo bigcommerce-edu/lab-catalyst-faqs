@@ -10,10 +10,8 @@ This Catalyst project supports the lab work for BigCommerce Catalyst Essentials.
 
 Copy the _starter_ branch.
 
-```
-pnpm create next-app@latest -e \
-  https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/starter \
-  /path/to/working/directory
+```shell
+pnpm create next-app@latest -e https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/starter /path/to/working/directory
 ```
 
 ### Product FAQs
@@ -26,7 +24,7 @@ Requires metafields on a product matching the following details:
 * `permission`: "read_and_sf_access"
 * `value`: JSON string matching the following schema:
 
-```
+```json
 {
   "question": "Question string",
   "answer": "Answer string"
@@ -49,9 +47,8 @@ Requires metafields on a product matching the following details:
 
 Fresh setup:
 
-```
-pnpm create next-app@latest -e \
-  https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/lab-faq-enhancements-start /path/to/working/directory
+```shell
+pnpm create next-app@latest -e https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/lab-faq-enhancements-start /path/to/working/directory
 ```
 
 [Completed lab state](https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/lab-faq-enhancements-complete)
@@ -64,3 +61,11 @@ pnpm create next-app@latest -e \
 * [Step 4.3 diff](https://github.com/bigcommerce-edu/lab-catalyst-faqs/compare/lab-faq-enhancements-04-02...lab-faq-enhancements-04-03)
 
 [Full lab diff](https://github.com/bigcommerce-edu/lab-catalyst-faqs/compare/lab-faq-enhancements-start...lab-faq-enhancements-complete)
+
+### Finished State
+
+Set up with all features complete:
+
+```shell
+pnpm create next-app@latest -e https://github.com/bigcommerce-edu/lab-catalyst-faqs/tree/lab-faq-enhancements-complete /path/to/working/directory
+```
