@@ -29,6 +29,12 @@ export const getProductFaqMetafields = cache(
 );
 
 const Faqs = async ({ productId }: { productId: number }) => {
+  function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  await sleep(2000);
+
   const faqCollection = await getProductFaqMetafields(productId);
 
   return (

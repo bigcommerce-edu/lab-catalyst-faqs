@@ -104,7 +104,9 @@ export default async function Product({ params: { locale, slug }, searchParams }
 
           <h2 className="my-4 text-xl font-bold md:text-2xl">{t('FAQ.heading')}</h2>
           <div className="mx-auto md:w-2/3">
-            <Faqs productId={product.entityId} />
+            <Suspense fallback={t('loading')}>
+              <Faqs productId={product.entityId} />
+            </Suspense>
           </div>
 
           <Suspense fallback={t('loading')}>
