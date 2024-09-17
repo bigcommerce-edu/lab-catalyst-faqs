@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Accordions } from '~/components/ui/accordions';
 
 import { formatFaqsCollection } from './_data/component-data';
 
@@ -20,18 +21,15 @@ const ProductFaqsList = ({
 
   return (
     <>
-      {faqs.map((faq) => (
-        <div className="my-4" key={faq.key}>
-          <div>
-            <label className="font-bold">Question:</label>
-            <span> {faq.question}</span>
-          </div>
-          <div>
-            <label className="font-bold">Answer:</label>
-            <span> {faq.answer}</span>
-          </div>
-        </div>
-      ))}
+      <Accordions
+        accordions={faqs.map(faq => {
+          return {
+            content: faq.answer,
+            title: faq.question,
+          }
+        })}
+        type="multiple"
+      />
     </>
   );
 };
